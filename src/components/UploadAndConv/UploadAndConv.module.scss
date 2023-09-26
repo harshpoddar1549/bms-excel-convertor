@@ -1,0 +1,17 @@
+.uploadButtonParentContainer{
+    display: flex;
+    justify-content: center;
+    //align-items: center;
+    flex-direction: column;
+    height: 500px;
+    align-items: center;
+    border: 1px dashed black;
+    background-color: rgb(237, 233, 233);
+}
+
+.downloadButtonParentContainer{
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

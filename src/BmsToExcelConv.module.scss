@@ -1,0 +1,11 @@
+.uploadAndConvMainContainer{
+    margin: 100px 50px 0px 50px;
+    //border: 1px solid black; 
+}
+
+@media only screen and (max-width: 750px) {
+    .uploadAndConvMainContainer{
+        margin: 100px 20px 0px 20px;
+        //border: 1px solid black; 
+    }
+}
