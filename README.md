@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# BMS-to-Excel-Converter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was done to automate the task of creating worksheets with audience info from the BookMyShow Template.
+It was specifically designed for Lahe Lahe, Bangalore. But can be utilized by any event organizing space that uses BookMyShow as their ticket management platform.
+
+Live Link -> [https://bms-excel-conv.onrender.com/]
 
 ## Available Scripts
 
