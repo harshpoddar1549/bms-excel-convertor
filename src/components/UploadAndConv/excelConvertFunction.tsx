@@ -20,8 +20,6 @@ export const excelConvertFunction = async (file:File, index: number):Promise<IFi
         //const newSheet = workbook.addWorksheet("New Sheet")
         // getting the name of the Event
         const eventName = getValueFromColArr(bmsSheet.getColumn('F').values)
-        console.log(eventName)
-        console.log(eventName?.toString())
         fileName = eventName?.toString() ? `${eventName?.toString()}.xlsx` : `file_${index}.xlsx`
         // adding a sheet
         const newSheet = workbook.addWorksheet(eventName?.toString()) //eventName?.toString()

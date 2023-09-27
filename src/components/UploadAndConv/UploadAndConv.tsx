@@ -1,8 +1,10 @@
 import { ChangeEvent, useRef, useState } from 'react'
-import {Button, CircularProgress} from '@mui/material'
+import { Button, CircularProgress } from '@mui/material'
 import styles from './UploadAndConv.module.scss'
 import { downloadFile, excelConvertFunction } from './excelConvertFunction'
 import { IFileNameAndBuffer } from '../../interfaces/excelConvertFunction.interface'
+import HowtoUse from './howToUse/HowtoUse'
+import { FilesUploadedViewer } from './filesUploadedViewer/FilesUploadedViewer'
 
 function UploadAndConv() {
 	const [fileList, setFileList] = useState<FileList>()
@@ -11,7 +13,6 @@ function UploadAndConv() {
 	
 	const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
 		if(e.target.files){
-			console.log(e.target.files)
 			const tmpBufferArr = await handleFileList(e.target.files)
 			setFileList(e.target.files)
 			tmpBufferArr && setBufferArr(tmpBufferArr)	
@@ -46,33 +47,39 @@ function UploadAndConv() {
 	}
 
   return (
-    <div className={styles.uploadButtonParentContainer}>
+	<>
+		<div>
+			<HowtoUse />
+		</div>
+		<div>
 			{(fileList?.length ? 
 				(bufferArr && bufferArr?.length>0 ? 
-				<div className={styles.downloadButtonParentContainer}>
-					<Button variant='contained' onClick={() => handleDownloadMultipleFile(bufferArr)}>Click to Download the file</Button>
-					 {/* <span >{file.name}</span> */}
-					<Button variant="text" onClick={handleStartOverButtonClick} style={{marginTop: "20px"}}>Start Over</Button>
+				<div>
+					<FilesUploadedViewer fileList={fileList}/>
+					<div className={styles.downloadButtonParentContainer}>
+						<Button variant='contained' onClick={() => handleDownloadMultipleFile(bufferArr)}>Click to Download the file(s)</Button>
+						<Button variant="text" onClick={handleStartOverButtonClick} style={{marginTop: "10px"}}>Start Over</Button>
+					</div>
 				</div> :
 				<div>
 					<CircularProgress />
 				</div>) :
-				(<>
-					<Button variant='contained' onClick={handleUploadButtonClick}> {/* startIcon={} */} 
-						Upload the BMS Document
+				(<div className={styles.uploadButtonParentContainer}>
+					<Button variant='contained' onClick={handleUploadButtonClick}> 
+						Upload the BMS File(s)
 					</Button>
 					<input 
 						type='file' 
 						onChange={handleFileChange} 
 						multiple={true}
-						//style={{display:"none"}}
 						ref={fileInputRef}
 						accept='.xls,.xlsx'
 						hidden
 					/>  
-				</>)
+				</div>)
 			)}
-    </div>
+		</div>
+	</>
   )
 }
 
