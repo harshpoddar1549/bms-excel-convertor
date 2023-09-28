@@ -22,7 +22,7 @@ export const excelConvertFunction = async (file:File, index: number):Promise<IFi
         const eventName = getValueFromColArr(bmsSheet.getColumn('F').values)
         fileName = eventName?.toString() ? `${eventName?.toString()}.xlsx` : `file_${index}.xlsx`
         // adding a sheet
-        const newSheet = workbook.addWorksheet(eventName?.toString()) //eventName?.toString()
+        const newSheet = workbook.addWorksheet("EventRegistrationDetails") //eventName?.toString()
         // Getting the Date and Time for the event
         const dateAndTime = getValueFromColArr(bmsSheet.getColumn('G').values)
         // Getting the price per head
