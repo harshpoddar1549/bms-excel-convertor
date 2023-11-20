@@ -5,6 +5,8 @@ It was specifically designed for Lahe Lahe, Bangalore. But can be utilized by an
 
 Live Link -> [https://bms-excel-conv.onrender.com/]
 
+In order to run a Demo, use the file "Registration_Details_LFLF_Sep 16 2023  7_30PM_160920231802.xlsx", present in the public dir.
+
 ## Available Scripts
 
 In the project directory, you can run:
